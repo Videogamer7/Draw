@@ -1,5 +1,4 @@
 #Made by Samuel Lin, October 25th, 2016, All Rights Reserved
-#
 #Turtle drawing game
 import turtle
 import math
@@ -37,7 +36,6 @@ speed = 1
 pensize = 1
 
 #Define functions
-
 #Changing colors
 def red():
     player.color("red")

@@ -1,7 +1,10 @@
+#Made by Samuel Lin, October 25th, 2016, All Rights Reserved
+#
 #Turtle drawing game
 import turtle
 import math
 import random
+
 
 #Set up screen
 wn = turtle.Screen()
@@ -34,6 +37,8 @@ speed = 1
 pensize = 1
 
 #Define functions
+
+#Changing colors
 def red():
     player.color("red")
 def darkred():
@@ -54,6 +59,8 @@ def darkgreen():
     player.color("darkgreen")
 def yellow():
     player.color("yellow")
+    
+#Movement
 def turnleft():
     player.left(90)
 
@@ -70,6 +77,8 @@ def decreasespeed():
     speed += -1
     if speed < -20:
         speed = -20
+
+#Drawing
 def PenUp():
     player.penup()
 def PenDown():
@@ -83,7 +92,7 @@ def Thin():
     if pensize < 1:
         pensize = 1
 
-    
+#Collision test 
 def isCollision(t1, t2):
     d = math.sqrt(math.pow(t1.xcor()-t2.xcor(),2) + math.pow(t1.ycor()-t2.ycor(),2))
     if d < 20:
@@ -91,8 +100,9 @@ def isCollision(t1, t2):
     else:
         return False
     
-#Set keyboard binfings
+#Set controls
 turtle.listen()
+#WASD to Move
 turtle.onkey(turnleft, "a")
 
 turtle.onkey(turnright, "d")
@@ -101,6 +111,7 @@ turtle.onkey(increasespeed, "w")
 
 turtle.onkey(decreasespeed, "s")
 
+# OP[] to Draw
 turtle.onkey(PenUp, "o")
 
 turtle.onkey(PenDown, "p")
@@ -109,6 +120,7 @@ turtle.onkey(Thick, "[")
 
 turtle.onkey(Thin, "]")
 
+# Numbers to Change color
 turtle.onkey(red, "1")
 
 turtle.onkey(darkred, "2")

@@ -198,10 +198,10 @@ while True:
     eraser3.forward(1350)
     eraser3.left(180)
     #Boundary check
-    if player.xcor() > 6000 or player.xcor() < -6000:
+    if player.xcor() > 600 or player.xcor() < -600:
         player.right(180)
 
-    elif player.ycor() > 6000 or player.ycor() < -6000:
+    elif player.ycor() > 600 or player.ycor() < -600:
         player.right(180)
 
             

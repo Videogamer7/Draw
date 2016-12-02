@@ -8,7 +8,7 @@ import random
 #Set up screen
 wn = turtle.Screen()
 wn.bgcolor("light blue")
-wn.tracer(1)
+wn.tracer(7)
 
 #Draw border
 mypen = turtle.Turtle()
@@ -21,6 +21,41 @@ for side in range(4):
     mypen.forward(1200)
     mypen.left(90)
 mypen.hideturtle()
+
+#Create eraser turtle up left
+eraser = turtle.Turtle()
+eraser.penup
+eraser.color("lightblue")
+eraser.speed(50)
+eraser.setpos(-675, -675)
+eraser.pensize(150)
+eraser.left(90)
+
+#Create eraser turtle 1 across left
+eraser1 = turtle.Turtle()
+eraser1.penup
+eraser1.color("lightblue")
+eraser1.speed(50)
+eraser1.setpos(-675, -675)
+eraser1.pensize(150)
+
+
+#Create eraser turtle 2 across right
+eraser2 = turtle.Turtle()
+eraser2.penup
+eraser2.color("lightblue")
+eraser2.speed(50)
+eraser2.setpos(-675, 675)
+eraser2.pensize(150)
+
+#Create eraser turtle 3 
+eraser3 = turtle.Turtle()
+eraser3.penup
+eraser3.color("lightblue")
+eraser3.speed(50)
+eraser3.setpos(675, 675)
+eraser3.pensize(150)
+eraser3.right(90)
 
 #Create player turtle
 player = turtle.Turtle()
@@ -89,7 +124,18 @@ def Thin():
     pensize += -1
     if pensize < 1:
         pensize = 1
-
+def redraw():
+    mypen.setposition(-600, -600)
+    mypen.forward(1350)
+    mypen.left(90)
+    mypen.forward(1350)
+    mypen.left(90)
+    mypen.forward(1350)
+    mypen.left(90)
+    mypen.forward(1350)
+    mypen.left(90)
+    mypen.hideturtle()
+    
 #Collision test 
 def isCollision(t1, t2):
     d = math.sqrt(math.pow(t1.xcor()-t2.xcor(),2) + math.pow(t1.ycor()-t2.ycor(),2))
@@ -118,6 +164,7 @@ turtle.onkey(Thick, "[")
 
 turtle.onkey(Thin, "]")
 
+turtle.onkey(redraw, "z")
 # Numbers to Change color
 turtle.onkey(red, "1")
 
@@ -142,11 +189,19 @@ turtle.onkey(lightgreen, "0")
 while True:
     player.forward(speed)
     player.pensize(pensize)
+    eraser.forward(1350)
+    eraser.left(180)
+    eraser1.forward(1350)
+    eraser1.left(180)
+    eraser2.forward(1350)
+    eraser2.left(180)
+    eraser3.forward(1350)
+    eraser3.left(180)
     #Boundary check
-    if player.xcor() > 600 or player.xcor() < -600:
+    if player.xcor() > 6000 or player.xcor() < -6000:
         player.right(180)
 
-    elif player.ycor() > 600 or player.ycor() < -600:
+    elif player.ycor() > 6000 or player.ycor() < -6000:
         player.right(180)
 
             
